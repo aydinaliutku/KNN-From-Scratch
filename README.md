@@ -11,6 +11,7 @@ Requires Python 3.10+. Run these commands in an activated virtual environment.
 ```bash
 python -m pip install -r requirements.txt
 python evaluate.py
+python -m pip install -r requirements-dev.txt
 python -m unittest discover -s tests
 ```
 
@@ -37,3 +38,5 @@ python evaluate.py --xray-dir chest_xray --output outputs/xray
 Provide `train/<class>/` and `test/<class>/` folders with `covid`, `normal` and `pneumonia` class names. The optional runner compares 32 × 32 and 64 × 64 pixels and three preprocessing variants on validation data. Keep the supplied train and test sets disjoint by patient. Validation within the provided train directory is image-level. Use the digit results above as the reproducible example. The X-ray pathway is an educational exercise.
 
 The [2022 notebook](https://github.com/aydinaliutku/KNN-From-Scratch/blob/12fd84740653adbed73cdbd6a17941f0bdb572d1/KNN_From_Scratch.ipynb) preserves the original analysis. Its table used the same test images to select k and measure performance, so the historical scores are unsuitable as holdout results.
+
+CI checks installation, dependency compatibility, unit tests and CLI examples on Python 3.12 for each push and pull request. You can also run it from the Actions tab.
